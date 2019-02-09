@@ -1,0 +1,22 @@
+{
+  "name": "dnsdock",
+  "version": "0.0.1",
+  "description": "dnsmasq automat",
+  "main": "index.js",
+  "scripts": {
+    "start": "export NODE_DEBUG=true && export NODE_ENV=development && node ./index.js",
+    "dev": "export NODE_DEBUG=true && export NODE_ENV=development && node ./index.js",
+    "prod": "export NODE_DEBUG=true && export NODE_ENV=production &&  node ./index.js",
+    "local": "export NODE_DEBUG=true && export NODE_ENV=local &&  node ./index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "crypto": "^1.0.1",
+    "dateformat": "^3.0.3",
+    "express": "^4.16.4",
+    "formidable": "^1.2.1",
+    "fs-extra": "^7.0.1",
+    "ramda": "^0.26.1"
+  }
+}

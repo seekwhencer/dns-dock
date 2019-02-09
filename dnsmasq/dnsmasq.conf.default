@@ -1,0 +1,22 @@
+#dnsmasq config, for a complete example, see:
+#  http://oss.segetech.com/intra/srv/dnsmasq.conf
+
+#log all dns queries
+log-queries
+
+#dont use hosts nameservers
+#no-resolv
+#no-hosts
+#domain-needed
+expand-hosts
+#bogus-priv
+
+strict-order
+
+server=8.8.8.8
+server=/dnsdock/192.168.178.28
+
+local=/dnsdock/
+conf-dir=/app/dnsmasq/config/,*.conf
+dhcp-leasefile=/app/dnsmasq/leases
+
