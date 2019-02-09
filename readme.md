@@ -6,6 +6,8 @@ simple registering of names inside your local area network.
 - List all existing addresses
 > http://ip_of_your_pi:9000/address
 
+Here you get a json with an id hash for any address. use this hash (id) to remove the address.
+
 - Add a address
 > http://ip_of_your_pi:9000/address/add
 
@@ -14,6 +16,11 @@ simple registering of names inside your local area network.
 `target` should be the ip address of your reverse proxy
  
 `source` is the named host
+
+- Remove a address
+> http://ip_of_your_pi:9000/address/delete/`id`
+
+`id` is a hash, get em from the index listing
 
 ### installation:
 
