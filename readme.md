@@ -1,7 +1,21 @@
 # dns-dock
 simple registering of names inside your local area network.
 
-### steps:
+### endpoints
+
+- List all existing addresses
+> http://ip_of_your_pi:9000/address
+
+- Add a address
+> http://ip_of_your_pi:9000/address/add
+
+> With post parameters: `source` and `target`
+
+`target` should be the ip address of your reverse proxy
+ 
+`source` is the named host
+
+### installation:
 
 - make a fresh clean raspberry pi (no desktop, passwort for root, update, upgrade)
 - install node with n:
