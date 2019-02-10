@@ -1,10 +1,8 @@
 #!/bin/sh
-
 sudo apt-get update
-sudp apt-get install dnsmasq -y
-sudo systemctl disable dnsmasq
+sudo apt-get install dnsmasq -y
 sudo systemctl stop dnsmasq
+sudo systemctl disable dnsmasq
 sudo mkdir -p /etc/default
 sudo ls -s /app/dnsmasq/default /etc/default/dnsmasq
 sudo mv /etc/dnsmasq.conf /etc/dnsmasq.conf.default
-sudo chown $USER:root /app -R

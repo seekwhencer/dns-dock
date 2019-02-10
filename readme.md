@@ -38,33 +38,44 @@ Here you get a json with an id hash for any address. use this hash (id) to remov
 ```
 curl -L https://git.io/n-install | N_PREFIX=/n bash -s
 ```
+
 - clone this repo to your pi:
 ``` 
 cd /
 sudo git clone ... app
 sudo chown pi:root -R /app
 cd /app
-npm install
 ``` 
+- run the install script (not as sudo)
+```
+cd /app
+chmod +x ./install.sh
+sh ./install.sh
+```
+
 - install pm2
 ```
 npm install pm2 -g
 ```
+
 - edit root .bashrc
 ```
 sudo su
 nano /root/.bashrc
 ```
+
 - add this
 ```
 export N_PREFIX="$HOME/n"; [[ :$PATH: == *":$N_PREFIX/bin:"* ]] || PATH+=":$N_PREFIX/bin"
 export PATH=$PATH:/home/pi/n/bin
 ```
+
 - exit and relogin
 ```
 exit
 sudo su
 ```
+
 - autostart the app with pm2
 ```
 sudo su
@@ -76,10 +87,17 @@ pm2 save
 - edit service
 ```
 sudo su
+# if exists
+systectl stop pm2-pi.service
+systemctl disable pm2-pi.service
 mv /etc/systemd/system/pm2-pi-service /etc/systemd/system/pm2-root-service
+ 
+# edit the root service
 nano /etc/systemd/system/pm2-root-service
+systemctl daemon-reload
 systemctl enable pm2-root.service
 systectl start pm2-root.service
+
 
 ```
 - use this
@@ -121,7 +139,7 @@ registered as global `CONFIG.filename` object.
 Run different configurations with: `npm run dev` or `npm run prod`. 
 
 ## Reverse Proxy
-In my case, i'm working with a second compouter only for the docker stuff.
+In my case, i'm working with a second computer only for the docker stuff.
 On the docker machine i'm using [nginx-proxy](https://github.com/jwilder/nginx-proxy) in a container as a reverse proxy.
 But this computer is not the dns server. In this case: the raspberry pi does the job very well.
 The reason for this setup is simple: with my home router called ["fritte"](https://avm.de/produkte/fritzbox/fritzbox-7560/) i can't set two
@@ -129,7 +147,7 @@ dns servers for the lan clients. if the dns machine is off, the dns in your lan 
 if you set a own dns - the dns computer must be always on! the power consumption of a pi is okay - equal to a fat docker runner.
 and you can use this piece of software together with [pihole](https://github.com/pi-hole/pi-hole)
 
-##Insomnia
+## Insomnia
 Use the `dns-dock_insomnia.har` with [Insomnia](https://insomnia.rest/) and change the environment `base_url`
 
 ## Security
