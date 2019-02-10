@@ -1,5 +1,14 @@
 # dns-dock
-simple registering of names inside your local area network.
+simple dns management for your local area network per web api and dnsmasq.
+this app creates config files for dnsmasq, starts and stops dnsmasq with a new config.
+you can feed dnsmasq via web api and some endpoints:
+
+- /address
+- /address/add
+- /address/delete
+- /restart
+
+> to test and use it, try [Insomnia](https://insomnia.rest/)
 
 ### endpoints
 
