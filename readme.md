@@ -66,8 +66,12 @@ pm2 save
 ```
 - edit service
 ```
+sudo su
 mv /etc/systemd/system/pm2-pi-service /etc/systemd/system/pm2-root-service
 nano /etc/systemd/system/pm2-root-service
+systemctl enable pm2-root.service
+systectl start pm2-root.service
+
 ```
 - use this
 ```
