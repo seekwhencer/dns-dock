@@ -1,11 +1,12 @@
 module.exports = {
     bin: '/usr/sbin/dnsmasq',
-    pihole: false,
+    pihole: true,
     autostart: true,
     restart_delay: 0,
     config_file: '/app/dnsmasq/dnsmasq.conf',
-    config_dir: '/app/dnsmasq/config',
-    lease_file: '/app/dnsmasq/leases',
+    config_dir: '/etc/dnsmasq.d',
+    config_prefix: '1000-',
+    lease_file: '/etc/pihole/dhcp.leases',
 
     config: {
         'log-queries': true,
