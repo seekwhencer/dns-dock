@@ -90,10 +90,10 @@ sudo su
 # if exists
 systectl stop pm2-pi.service
 systemctl disable pm2-pi.service
-mv /etc/systemd/system/pm2-pi-service /etc/systemd/system/pm2-root-service
+mv /etc/systemd/system/pm2-pi.service /etc/systemd/system/pm2-root.service
  
 # edit the root service
-nano /etc/systemd/system/pm2-root-service
+nano /etc/systemd/system/pm2-root.service
 systemctl daemon-reload
 systemctl enable pm2-root.service
 systectl start pm2-root.service

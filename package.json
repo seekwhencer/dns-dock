@@ -7,7 +7,7 @@
     "start": "export NODE_DEBUG=true && export NODE_ENV=development && node ./index.js",
     "dev": "export NODE_DEBUG=true && export NODE_ENV=development && node ./index.js",
     "prod": "export NODE_DEBUG=true && export NODE_ENV=production &&  node ./index.js",
-    "local": "export NODE_DEBUG=true && export NODE_ENV=local &&  node ./index.js"
+    "pihole": "export NODE_DEBUG=true && export NODE_ENV=pihole &&  node ./index.js"
   },
   "author": "",
   "license": "ISC",
