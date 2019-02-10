@@ -10,7 +10,7 @@ you can feed dnsmasq via web api and some endpoints:
 
 > to test and use it, try [Insomnia](https://insomnia.rest/)
 
-### endpoints
+### Endpoints
 
 - List all existing addresses
 > http://ip_of_your_pi:9000/address
@@ -31,7 +31,7 @@ Here you get a json with an id hash for any address. use this hash (id) to remov
 
 `id` is a hash, get em from the index listing
 
-### installation:
+### Installation
 
 - make a fresh clean raspberry pi (no desktop, passwort for root, update, upgrade)
 - install node with n:
@@ -113,3 +113,29 @@ WantedBy=multi-user.target
 reboot
 ```
 
+## Configuration
+
+Configuration files for the node app are stored in `config/`. All files will be autoloaded by the app and
+registered as global `CONFIG.filename` object.
+ 
+Run different configurations with: `npm run dev` or `npm run prod`. 
+
+## Reverse Proxy
+In my case, i'm working with a second compouter only for the docker stuff.
+On the docker machine i'm using [nginx-proxy](https://github.com/jwilder/nginx-proxy) in a container as a reverse proxy.
+But this computer is not the dns server. In this case: the raspberry pi does the job very well.
+The reason for this setup is simple: with my home router called ["fritte"](https://avm.de/produkte/fritzbox/fritzbox-7560/) i can't set two
+dns servers for the lan clients. if the dns machine is off, the dns in your lan is broken. that is bad.
+if you set a own dns - the dns computer must be always on! the power consumption of a pi is okay - equal to a fat docker runner.
+and you can use this piece of software together with [pihole](https://github.com/pi-hole/pi-hole)
+
+##Insomnia
+Use the `dns-dock_insomnia.har` with [Insomnia](https://insomnia.rest/) and change the environment `base_url`
+
+## Security
+
+> god beware - that piece of software is absolutely not for production or any public or half-public projects.
+
+> All endpoints are reachable from your local area network
+
+> The caller hits directly the app
