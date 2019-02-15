@@ -19,11 +19,12 @@ module.exports = {
         'local-ttl': 2,
         'log-async': true,
 
+        'strict-order': true,
         'server': [
-            '192.168.178.1',
+            '/dnsdock/192.168.178.28',
             '8.8.8.8',
             '8.8.4.4',
-            '192.168.178.28'
+            '/fritz.box/192.168.178.1'
         ],
         'conf-dir': false,
         'interface': 'eth0'
