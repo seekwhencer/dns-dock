@@ -4,4 +4,7 @@ const
 require('./lib/globals');
 
 
-global.SERVER = new Server();
+global.SERVER = new Server({
+    a:'utztf',
+    b: 'uitfizf'
+});
